@@ -1,0 +1,133 @@
+a{
+    color: $btn-color ;
+    font-weight: bold;
+
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.form-frame{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+}
+
+.signin-title{
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+
+.create-title{
+    align-self: left;
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.form-title{
+    width: 30rem;
+    margin-bottom: 1rem;
+    font-size: large;
+    font-weight: bold;    
+}
+
+.little-disclaimer{
+    width: 30rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+#account-input{
+    border: solid black 0.05rem;
+    padding: 0.5rem;
+    width: 29rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+}
+
+.username-input{
+    @extend #account-input ;
+}
+
+.password-input{
+    @extend #account-input ;
+}
+
+.keep-signed-in{
+    display: flex;
+    align-items: center;
+    font-size: large;
+    width: 30rem;
+    margin-bottom: 2rem;
+}
+
+.terms-of-use{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    font-size: large;
+    width: 30rem;
+    height: fit-content;
+    margin-bottom: 2rem;
+}
+
+.terms-aligner{    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: large;
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.keep-checkbox{
+    border: solid $btn-color 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 0.3rem;
+    margin-right: 0.6rem;
+    font-size: large;
+    color: white;
+
+    transition: 150ms ease-in;
+}
+
+.keep-checkbox-toggled{
+    background-color: $btn-color ;
+}
+
+.forgot-link{
+    width: 30rem;
+    font-size: large;
+    margin-bottom: 1rem;
+}
+
+.sign-button-frame{
+    display: flex;
+    width: 30rem;
+    justify-content: right;
+}
+
+.sign-button{
+    background-color: $btn-color;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 9999px;
+    padding: 1rem;
+}
+
+.input-instructions{
+    display: flex;
+    width: 28rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}

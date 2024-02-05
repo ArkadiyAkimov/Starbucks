@@ -1,0 +1,122 @@
+$btn-color:  rgb(0,98,65);
+
+
+nav{
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+    height: 4.50rem;
+
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.navbar-items{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%; 
+}
+
+.right-nav-btn-bundle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button{
+    background-color: #0000;
+    border: none;
+}
+
+.logo{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.location-pin{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.find-store-button{
+    display: flex;
+    align-items: center;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.find-store-button:hover{
+    color: $btn-color;
+}
+
+.menu-button{
+    font-size: small;
+    font-weight: bold;
+}
+
+.menu-button:hover{
+    color: $btn-color;
+}
+
+#account-button{
+    border: solid 0.05rem black;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: bold;
+    font-size: small;
+    margin: 0.5rem;
+
+    transition: 150ms ease-in;
+}
+
+.signin-button{
+    @extend #account-button ;
+}
+
+.signin-button:hover{
+    background-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+.create-button{
+    @extend #account-button ;
+    background-color: black;
+    color: white;
+}
+
+.create-button:hover{
+     background-color: #000000cd;
+}
+
+
+@media(min-width:768px){
+    nav{
+        height: 5.17rem;
+    }
+
+    .navbar-items{
+        display: flex;
+    }
+
+    .logo{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media(min-width:1024px){
+    nav{
+        height: 6.17rem;
+    }
+}
