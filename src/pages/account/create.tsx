@@ -1,3 +1,4 @@
+import { User } from "@/models/User"
 import { useState } from "react"
 
 export default function Create(){
@@ -8,6 +9,24 @@ export default function Create(){
     const [emailCheck,setEmailCheck] = useState(false)
     const [agreeTerms,setAgreeTerms] = useState(false)
 
+    const createAccount = () => {
+
+        if(!agreeTerms) return
+
+        const user:User = {
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            password: password
+        }
+
+        setFirstName('')
+        setLastName('')
+        setUsername('')
+        setPassword('')
+
+        console.log(user)
+    }
 
     return(
         <div className="form-frame">
@@ -16,14 +35,14 @@ export default function Create(){
         <div className="little-disclaimer">*indicates required field</div>
 
         <div className="form-title">Personal Information</div>
-        <input className="username-input" onChange={e=>setFirstName(e.target.value)} type="text" placeholder="*First Name"/>
-        <input className="password-input" onChange={e=>setLastName(e.target.value)}  type="text" placeholder="*Last Name"/>
+        <input className="username-input" onChange={e=>setFirstName(e.target.value)} value={firstName} type="text" placeholder="*First Name"/>
+        <input className="password-input" onChange={e=>setLastName(e.target.value)} value={lastName} type="text" placeholder="*Last Name"/>
 
         
         <div className="form-title">Account Security</div>
-        <input className="username-input" onChange={e=>setUsername(e.target.value)} type="text" placeholder="*Email address"/>
+        <input className="username-input" onChange={e=>setUsername(e.target.value)} value={username} type="text" placeholder="*Email address"/>
         <div className="input-instructions">This will be your username</div>
-        <input className="password-input" onChange={e=>setPassword(e.target.value)} type="text" placeholder="*Password"/>
+        <input className="password-input" onChange={e=>setPassword(e.target.value)} value={password} type="text" placeholder="*Password"/>
         <div className="input-instructions">Create a password 8 to 25 characters long that includes at least 1 uppercase and 1 lowercase letter, 1 number and 1 special character like an exclamation point or asterisk.</div>
 
         <div className="keep-signed-in">
@@ -44,7 +63,7 @@ export default function Create(){
         </div>
 
         <div className="sign-button-frame">
-            <button className="sign-button">Create account</button>
+            <button onClick={()=>createAccount()} className="sign-button">Create account</button>
         </div>
     </div>
     )
