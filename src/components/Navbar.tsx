@@ -2,16 +2,20 @@ import Link from "next/link";
 import { SiStarbucks } from "react-icons/si";
 import { MdLocationOn } from "react-icons/md";
 import { useContext } from "react";
-import { UserContext } from "@/pages/_app";
+import { AppStateContext } from "@/pages/_app";
 import React from "react";
 
 
 export default function Navbar(){
 
-    const {user,setUser} = useContext(UserContext)
-
+    const {appState,setAppState} = useContext(AppStateContext)
+    
     const logout = () => {
-        setUser(undefined)
+        setAppState(prevState => ({
+            ...prevState, 
+            loggedUser: undefined,
+            Userdb: prevState ? prevState.Userdb : []
+        }))
     }
 
     return (
@@ -31,7 +35,7 @@ export default function Navbar(){
            <button className="find-store-button">
             <MdLocationOn className="location-pin" />
             Find a store </button>
-            {user === undefined 
+            {appState?.loggedUser === undefined 
                     ?<React.Fragment>
                      <Link href={`/account/signin`}>
                         <button className="signin-button">Sign in</button>
@@ -41,7 +45,7 @@ export default function Navbar(){
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
-                        <button className="signin-button">{user.firstName}</button>
+                        <button className="signin-button">{appState?.loggedUser.firstName}</button>
                         <button onClick={()=>{logout()}} className="create-button">Logout</button>
                      </React.Fragment>
                      }

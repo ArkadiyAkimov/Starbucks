@@ -1,7 +1,11 @@
 import { User } from "@/models/User"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { AppStateContext } from "../_app"
+import { json } from "stream/consumers"
 
 export default function Create(){
+    const {appState,setAppState} = useContext(AppStateContext)
+
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [username, setUsername] = useState('')
@@ -13,19 +17,27 @@ export default function Create(){
 
         if(!agreeTerms) return
 
-        const user:User = {
+        const newUser:User = {
             firstName: firstName,
             lastName: lastName,
             username: username,
             password: password
         }
 
+        setAppState(prevState => ({
+            ...prevState, 
+            loggedUser: prevState? prevState.loggedUser : undefined,
+            Userdb: (prevState ? [...prevState.Userdb,newUser] : [newUser])
+        }))
+
+        localStorage.setItem("APP_STATE", JSON.stringify(appState))
+
         setFirstName('')
         setLastName('')
         setUsername('')
         setPassword('')
 
-        console.log(user)
+        console.log(appState ? appState : "No app state")
     }
 
     return(

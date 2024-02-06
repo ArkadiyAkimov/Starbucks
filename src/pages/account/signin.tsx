@@ -1,10 +1,11 @@
 import { useContext, useState } from "react"
-import { UserContext } from "../_app"
+import { AppStateContext } from "../_app"
 import { User } from "@/models/User"
 import { useRouter } from "next/router"
+import { AppState } from "@/models/AppState"
 
 export default function Signin(){
-    const {user,setUser} = useContext(UserContext)
+    const {appState,setAppState} = useContext(AppStateContext)
     const router = useRouter()
 
     const [username, setUsername] = useState('')
@@ -18,7 +19,12 @@ export default function Signin(){
             username: username,
             password: password
         }
-        setUser(tempUser)
+
+        setAppState(prevState => ({
+            ...prevState, 
+            loggedUser: tempUser,
+            Userdb: prevState ? prevState.Userdb : []
+        }))
 
         setUsername('')
         setPassword('')
