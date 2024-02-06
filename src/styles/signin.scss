@@ -1,24 +1,43 @@
 a{
     color: $btn-color ;
     font-weight: bold;
-
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
 }
 
 a:hover{
     text-decoration: none;
 }
 
+
 .form-frame{
     display: flex;
     flex-direction: column;
     padding: 1rem;
     align-items: center;
+
+    font-size: small;
+    //background-color: red;
+}
+
+.form-bubble{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 30rem;
+    border-radius: 0.5rem;
+    align-items: center;
+//    border: 0.1rem black solid;
+
+
+    box-shadow: none;
 }
 
 .signin-title{
     font-size: x-large;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 
@@ -49,6 +68,8 @@ a:hover{
     height: 2rem;
     margin-bottom: 2rem;
     border-radius: 0.5rem;
+
+    font-size: large
 }
 
 .username-input{
@@ -62,7 +83,6 @@ a:hover{
 .keep-signed-in{
     display: flex;
     align-items: center;
-    font-size: large;
     width: 30rem;
     margin-bottom: 2rem;
 }
@@ -71,7 +91,6 @@ a:hover{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    font-size: large;
     width: 30rem;
     height: fit-content;
     margin-bottom: 2rem;
@@ -82,7 +101,6 @@ a:hover{
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    font-size: large;
     width: fit-content;
     height: fit-content;
 
@@ -130,4 +148,20 @@ a:hover{
     width: 28rem;
     margin-top: -1rem;
     margin-bottom: 2rem;
+}
+
+
+@media(min-width:768px){
+    .form-bubble{
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.105);
+    }
+
+    .create-title{
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+    }
+}
+
+@media(min-width:1024px){
+
 }

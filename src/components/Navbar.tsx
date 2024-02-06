@@ -3,6 +3,7 @@ import { SiStarbucks } from "react-icons/si";
 import { MdLocationOn } from "react-icons/md";
 import { useContext } from "react";
 import { UserContext } from "@/pages/_app";
+import React from "react";
 
 
 export default function Navbar(){
@@ -26,14 +27,20 @@ export default function Navbar(){
            <button className="find-store-button">
             <MdLocationOn className="location-pin" />
             Find a store </button>
-            {currUser === undefined && <>
+            {currUser === undefined 
+                    ?<React.Fragment>
                      <Link href={`/account/signin`}>
                         <button className="signin-button">Sign in</button>
                      </Link>
                      <Link href={`/account/create`}>
                         <button className="create-button">Join us</button>
                      </Link>
-                     </>}
+                     </React.Fragment> 
+                    :<React.Fragment>
+                        <button className="signin-button">{currUser.firstName}</button>
+                        <button className="create-button">Logout</button>
+                     </React.Fragment>
+                     }
                 </div>    
                 </div>
         </nav>

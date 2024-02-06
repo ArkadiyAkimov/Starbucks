@@ -7,11 +7,16 @@ export default function Signin(){
     const [password, setPassword] = useState('')
     const [keepSigned,setKeepSigned] = useState(false)
 
-   
+   const Signin = () => {
+    const user = {username,password}
+    const data = localStorage.getItem('currUser')
+   }
 
     return(
         <div className="form-frame">
             <div className="signin-title">Sign in or create an account</div>
+            
+            <div className="form-bubble">
             <div className="little-disclaimer">*indicates required field</div>
             <input className="username-input" onChange={e=>setUsername(e.target.value)} type="text" placeholder="*Username or email address"/>
             <input className="password-input" onChange={e=>setPassword(e.target.value)} type="text" placeholder="*Password"/>
@@ -26,6 +31,7 @@ export default function Signin(){
             <div className="sign-button-frame">
                 <button className="sign-button">Sign in</button>
             </div>
+        </div>
         </div>
     )
 }

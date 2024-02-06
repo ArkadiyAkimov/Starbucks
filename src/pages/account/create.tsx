@@ -32,8 +32,9 @@ export default function Create(){
         <div className="form-frame">
         <div className="create-title">Create an account</div>
         <div className="input-instructions">Join Starbucks Rewards to earn Stars for free food and drinks, any way you pay. Get access to mobile ordering, a birthday Reward, and more.</div>
+        
+        <div className="form-bubble">
         <div className="little-disclaimer">*indicates required field</div>
-
         <div className="form-title">Personal Information</div>
         <input className="username-input" onChange={e=>setFirstName(e.target.value)} value={firstName} type="text" placeholder="*First Name"/>
         <input className="password-input" onChange={e=>setLastName(e.target.value)} value={lastName} type="text" placeholder="*Last Name"/>
@@ -65,6 +66,7 @@ export default function Create(){
         <div className="sign-button-frame">
             <button onClick={()=>createAccount()} className="sign-button">Create account</button>
         </div>
+    </div>
     </div>
     )
 }
