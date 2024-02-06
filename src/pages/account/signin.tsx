@@ -1,16 +1,29 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../_app"
+import { User } from "@/models/User"
+import { useRouter } from "next/router"
 
 export default function Signin(){
+    const {user,setUser} = useContext(UserContext)
+    const router = useRouter()
 
-    
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [keepSigned,setKeepSigned] = useState(false)
+    const [keepSigned,setKeepSigned] = useState(true)
 
-   const Signin = () => {
-    const user = {username,password}
-    const data = localStorage.getItem('currUser')
-   }
+    const login = () => {
+        const tempUser:User = {
+            firstName: username,
+            lastName: username,
+            username: username,
+            password: password
+        }
+        setUser(tempUser)
+
+        setUsername('')
+        setPassword('')
+        router.push('/')
+    }
 
     return(
         <div className="form-frame">
@@ -18,8 +31,8 @@ export default function Signin(){
             
             <div className="form-bubble">
             <div className="little-disclaimer">*indicates required field</div>
-            <input className="username-input" onChange={e=>setUsername(e.target.value)} type="text" placeholder="*Username or email address"/>
-            <input className="password-input" onChange={e=>setPassword(e.target.value)} type="text" placeholder="*Password"/>
+            <input className="username-input" onChange={e=>setUsername(e.target.value)} value={username} type="text" placeholder="*Username or email address"/>
+            <input className="password-input" onChange={e=>setPassword(e.target.value)} value={password} type="text" placeholder="*Password"/>
             <div className="keep-signed-in">
                 <button onClick={()=>{setKeepSigned(!keepSigned)}} className={`keep-checkbox ${keepSigned && `keep-checkbox-toggled`}`}>
                 ✔</button>
@@ -29,7 +42,7 @@ export default function Signin(){
             <a className="forgot-link" href="">Forgot your username?</a>
             <a className="forgot-link" href="">Forgot your password?</a>
             <div className="sign-button-frame">
-                <button className="sign-button">Sign in</button>
+                <button onClick={()=>{login()}} className="sign-button">Sign in</button>
             </div>
         </div>
         </div>

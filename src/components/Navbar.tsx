@@ -8,7 +8,11 @@ import React from "react";
 
 export default function Navbar(){
 
-    const currUser = useContext(UserContext)
+    const {user,setUser} = useContext(UserContext)
+
+    const logout = () => {
+        setUser(undefined)
+    }
 
     return (
         <nav>
@@ -27,7 +31,7 @@ export default function Navbar(){
            <button className="find-store-button">
             <MdLocationOn className="location-pin" />
             Find a store </button>
-            {currUser === undefined 
+            {user === undefined 
                     ?<React.Fragment>
                      <Link href={`/account/signin`}>
                         <button className="signin-button">Sign in</button>
@@ -37,8 +41,8 @@ export default function Navbar(){
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
-                        <button className="signin-button">{currUser.firstName}</button>
-                        <button className="create-button">Logout</button>
+                        <button className="signin-button">{user.firstName}</button>
+                        <button onClick={()=>{logout()}} className="create-button">Logout</button>
                      </React.Fragment>
                      }
                 </div>    
