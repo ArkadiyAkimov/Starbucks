@@ -30,14 +30,13 @@ export default function Create(){
             Userdb: (prevState ? [...prevState.Userdb,newUser] : [newUser])
         }))
 
-        localStorage.setItem("APP_STATE", JSON.stringify(appState))
 
         setFirstName('')
         setLastName('')
         setUsername('')
         setPassword('')
 
-        console.log(appState ? appState : "No app state")
+        console.log(JSON.stringify(appState))
     }
 
     return(

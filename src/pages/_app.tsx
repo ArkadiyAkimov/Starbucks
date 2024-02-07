@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";  
 import { AppState, AppStateContextProps } from "@/models/AppState";
-import { User, UserContextProps } from "@/models/User";
 import "@/styles/globals.scss";
 import type { AppProps } from "next/app"; 
 import { SetStateAction, useEffect, useState } from "react";
@@ -13,20 +12,36 @@ export const AppStateContext = createContext<AppStateContextProps>({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [currUser,setCurrUser] = useState<User|undefined>(undefined)
   const [appState,setAppState] = useState<AppState|undefined>(undefined)
 
-  useEffect(()=>{
-    const localAppState = localStorage.getItem('APP_STATE')
-    if(localAppState){
-      const data:AppState = JSON.parse(localAppState)
-      setAppState(data)
-      setCurrUser(data.loggedUser)
-    }
-  },[])
 
+  useEffect(() => {
+    if (appState) {
+        localStorage.setItem('APPSTATE', JSON.stringify(appState));
+    }
+  }, [appState]);
   
 
+  useEffect(() => {
+    // Retrieve appState from local storage
+    if(appState){
+      console.log("no changes made")
+    }
+    const storedAppState = localStorage.getItem('APPSTATE');
+    if (storedAppState) {
+        try {
+            const parsedAppState:AppState = JSON.parse(storedAppState);
+                setAppState(parsedAppState);
+        } catch (error) {
+            console.error('Error parsing data from localStorage:', error);
+        }
+    }
+}, []);
+
+
+console.log(appState)
+
+  
   return ( 
     <AppStateContext.Provider value={{appState:appState,setAppState:setAppState}}>
       <Layout>

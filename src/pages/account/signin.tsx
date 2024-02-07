@@ -13,16 +13,14 @@ export default function Signin(){
     const [keepSigned,setKeepSigned] = useState(true)
 
     const login = () => {
-        const tempUser:User = {
-            firstName: username,
-            lastName: username,
-            username: username,
-            password: password
-        }
+
+        const userFound = appState?.Userdb.find(user => user.username === username && user.password === password)
+
+        if (!userFound) return
 
         setAppState(prevState => ({
             ...prevState, 
-            loggedUser: tempUser,
+            loggedUser: userFound,
             Userdb: prevState ? prevState.Userdb : []
         }))
 
