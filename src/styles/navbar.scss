@@ -9,7 +9,7 @@ nav{
     height: 4.50rem;
 
     display:flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -103,6 +103,7 @@ button{
 @media(min-width:768px){
     nav{
         height: 5.17rem;
+        justify-content: left;
     }
 
     .navbar-items{

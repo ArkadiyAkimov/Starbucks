@@ -1,9 +1,14 @@
+
+'use client'
+
 import Link from "next/link";
 import { SiStarbucks } from "react-icons/si";
 import { MdLocationOn } from "react-icons/md";
 import { useContext } from "react";
 import { AppStateContext } from "@/pages/_app";
 import React from "react";
+import { usePathname } from "next/navigation";
+import { DiVim } from "react-icons/di";
 
 
 export default function Navbar(){
@@ -18,12 +23,25 @@ export default function Navbar(){
         }))
     }
 
+    const pathname = usePathname()
+    const showFull = (pathname !== '/account/create' && pathname !== '/account/signin')
+
     return (
         <nav>
             <Link href={`/`}>
             <SiStarbucks className="logo" color="rgb(0,98,65)"/>
             </Link>
 
+            <div className="navbar-slide-menu-button">
+                <div className="circle"></div>
+                    <div className="lines-container">
+                        <div className="line-1"></div>
+                        <div className="line-2"></div>
+                        <div className="line-3"></div>   
+                    </div>
+            </div>
+
+            { showFull &&  
             <div className="navbar-items">
             <div>
                 <button className="menu-button">MENU</button>
@@ -49,8 +67,9 @@ export default function Navbar(){
                         <button onClick={()=>{logout()}} className="create-button">Logout</button>
                      </React.Fragment>
                      }
-                </div>    
                 </div>
+                </div>
+                 }
         </nav>
     )
 }
