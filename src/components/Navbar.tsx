@@ -45,7 +45,7 @@ export default function Navbar(){
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
-                        <button className="signin-button">{appState?.loggedUser.firstName}</button>
+                        <button className="signin-button">{`Hello, ${appState?.loggedUser.firstName}!`}</button>
                         <button onClick={()=>{logout()}} className="create-button">Logout</button>
                      </React.Fragment>
                      }
