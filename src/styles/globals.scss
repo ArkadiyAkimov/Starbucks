@@ -1,11 +1,15 @@
-@import '../styles/navbar.scss';
-@import '../styles/post.scss';
 @import '../styles/signin.scss';
 @import '../styles/slide-menu.scss';
+ 
 
 body{
     margin: 0px;
     font-family: sans-serif;
+}
+
+button{
+    background-color: #0000;
+    border: none;
 }
 
 @media(min-width:768px){

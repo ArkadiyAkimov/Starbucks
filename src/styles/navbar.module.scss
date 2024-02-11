@@ -1,7 +1,5 @@
-$btn-color:  rgb(0,98,65);
 
-
-nav{
+.nav{
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -15,7 +13,7 @@ nav{
     padding-right: 1.25rem;
 }
 
-.navbar-items{
+.items{
     display: none;
     flex-direction: row;
     align-items: center;
@@ -26,15 +24,10 @@ nav{
     width: 100%; 
 }
 
-.right-nav-btn-bundle{
+.right_nav_btn_bundle{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-button{
-    background-color: #0000;
-    border: none;
 }
 
 .logo{
@@ -42,12 +35,12 @@ button{
     height: 2.4rem;
 }
 
-.location-pin{
+.location_pin{
     width: 1.8rem;
     height: 1.8rem;
 }
 
-.find-store-button{
+.find_store_button{ 
     display: flex;
     align-items: center;
     font-size: small;
@@ -55,20 +48,20 @@ button{
     margin-right: 2rem;
 }
 
-.find-store-button:hover{
-    color: $btn-color;
+.find_store_button:hover{
+    color:  rgb(0,98,65);
 }
 
-.menu-button{
+.menu_button{ 
     font-size: small;
     font-weight: bold;
 }
 
-.menu-button:hover{
-    color: $btn-color;
+.menu_button:hover{
+    color:  rgb(0,98,65);
 }
 
-#account-button{
+#account_button{ 
     border: solid 0.05rem black;
     border-radius: 2rem;
     padding: 0.5rem;
@@ -81,32 +74,32 @@ button{
     transition: 150ms ease-in;
 }
 
-.signin-button{
-    @extend #account-button ;
+.signin_button{ 
+    @extend #account_button ;
 }
 
-.signin-button:hover{
+.signin_button:hover{
     background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
-.create-button{
-    @extend #account-button ;
+.create_button{ 
+    @extend #account_button ;
     background-color: black;
     color: white;
 }
 
-.create-button:hover{
+.create_button:hover{
      background-color: #000000cd;
 }
 
 
 @media(min-width:768px){
-    nav{
+    .nav{
         height: 5.17rem;
         justify-content: left;
     }
 
-    .navbar-items{
+    .items{
         display: flex;
     }
 
@@ -117,7 +110,7 @@ button{
 }
 
 @media(min-width:1024px){
-    nav{
+    .nav{
         height: 6.17rem;
     }
 }

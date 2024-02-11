@@ -1,5 +1,5 @@
-import { PostModel } from "@/models/PostModel";
-import styles from "@/styles/Home.module.scss";
+import { PostModel } from "@/models/PostModel"; 
+import styles from '../styles/post.module.scss';
 
 export interface PostProps {
     alternate:boolean,
@@ -8,16 +8,13 @@ export interface PostProps {
 
 export default function Post({alternate, post}:PostProps){
 
-
-    
-
     return(
-        <div className={`post ${alternate && `post-reverse`}`} style={{backgroundColor:post.color}}>
-            <img className="post-image" src={post.imgUrl} alt="No Image" />
-            <div className="post-content">
-                <div className="post-title">{post.title}</div>
-                <div className="post-text">{post.text}</div>
-                <button className="post-button">{post.btnText}</button>
+        <div className={styles.post +' '+ (alternate && styles.reverse)} style={{backgroundColor:post.color, color:post.textColor}}>
+            <img className={styles.image} src={post.imgUrl} alt="No Image" />
+            <div className={styles.content}>
+                <div className={styles.title}>{post.title}</div>
+                <div className={styles.text}>{post.text}</div>
+                <button className={styles.button} style={{color:post.textColor, borderColor:post.textColor}}>{post.btnText}</button>
             </div>
         </div>
     )

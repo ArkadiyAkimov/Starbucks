@@ -7,9 +7,8 @@ import { MdLocationOn } from "react-icons/md";
 import { useContext } from "react";
 import { AppStateContext } from "@/pages/_app";
 import React from "react";
-import { usePathname } from "next/navigation";
-import { DiVim } from "react-icons/di";
-
+import { usePathname } from "next/navigation"; 
+import styles from '../styles/navbar.module.scss';
 
 export default function Navbar(){
 
@@ -27,9 +26,9 @@ export default function Navbar(){
     const showFull = (pathname !== '/account/create' && pathname !== '/account/signin')
 
     return (
-        <nav>
+        <nav className={styles.nav}>
             <Link href={`/`}>
-            <SiStarbucks className="logo" color="rgb(0,98,65)"/>
+            <SiStarbucks className={styles.logo} color="rgb(0,98,65)"/>
             </Link>
 
             <div className="navbar-slide-menu-button">
@@ -42,29 +41,29 @@ export default function Navbar(){
             </div>
 
             { showFull &&  
-            <div className="navbar-items">
+            <div className={styles.items}>
             <div>
-                <button className="menu-button">MENU</button>
-                <button className="menu-button">REWARDS</button>
-                <button className="menu-button">GIFT CARDS</button>
+                <button className={styles.menu_button}>MENU</button>
+                <button className={styles.menu_button}>REWARDS</button>
+                <button className={styles.menu_button}>GIFT CARDS</button>
             </div>
 
-            <div className="right-nav-btn-bundle">
-           <button className="find-store-button">
-            <MdLocationOn className="location-pin" />
+            <div className={styles.right_nav_btn_bundle}>
+           <button className={styles.find_store_button}>
+            <MdLocationOn className={styles.location_pin} />
             Find a store </button>
             {appState?.loggedUser === undefined 
                     ?<React.Fragment>
                      <Link href={`/account/signin`}>
-                        <button className="signin-button">Sign in</button>
+                        <button className={styles.signin_button}>Sign in</button>
                      </Link>
                      <Link href={`/account/create`}>
-                        <button className="create-button">Join us</button>
+                        <button className={styles.create_button}>Join us</button>
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
-                        <button className="signin-button">{`Hello, ${appState?.loggedUser.firstName}!`}</button>
-                        <button onClick={()=>{logout()}} className="create-button">Logout</button>
+                        <button className={styles.signin_button}>{`Hello, ${appState?.loggedUser.firstName}!`}</button>
+                        <button onClick={()=>{logout()}} className={styles.create_button}>Logout</button>
                      </React.Fragment>
                      }
                 </div>
