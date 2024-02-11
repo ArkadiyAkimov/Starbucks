@@ -1,16 +1,4 @@
-a{
-    color: rgb(0,98,65) ;
-    font-weight: bold;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
-}
-
-a:hover{
-    text-decoration: none;
-}
-
-
-.form-frame{
+.form_frame{
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -20,7 +8,7 @@ a:hover{
     //background-color: red;
 }
 
-.form-bubble{
+.form_bubble{
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -33,7 +21,7 @@ a:hover{
     box-shadow: none;
 }
 
-.signin-title{
+.signin_title{
     font-size: x-large;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -41,28 +29,28 @@ a:hover{
 }
 
 
-.create-title{
+.create_title{
     align-self: left;
     font-size: x-large;
     font-weight: bold;
     margin-bottom: 2rem;
 }
 
-.form-title{
+.form_title{
     width: 30rem;
     margin-bottom: 1rem;
     font-size: large;
     font-weight: bold;    
 }
 
-.little-disclaimer{
+.little_disclaimer{
     width: 30rem;
     text-align: left;
     margin-bottom: 2rem;
 }
 
-#account-input{
-    border: solid black 0.05rem;
+#account_input{
+    border: solid rgb(155, 155, 155) 0.08rem;
     padding: 0.5rem;
     width: 29rem;
     height: 2rem;
@@ -72,22 +60,30 @@ a:hover{
     font-size: large
 }
 
-.username-input{
-    @extend #account-input ;
+#account_input::placeholder {
+    color: black;
 }
 
-.password-input{
-    @extend #account-input ;
+#account_input::placeholder span{
+    color: green;
 }
 
-.keep-signed-in{
+.username_input{
+    @extend #account_input ;
+}
+
+.password_input{
+    @extend #account_input ;
+}
+
+.keep_signed_in{
     display: flex;
     align-items: center;
     width: 30rem;
     margin-bottom: 2rem;
 }
 
-.terms-of-use{
+.terms_of_use{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -96,7 +92,7 @@ a:hover{
     margin-bottom: 2rem;
 }
 
-.terms-aligner{    
+.terms_aligner{    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -106,7 +102,7 @@ a:hover{
 
 }
 
-.keep-checkbox{
+.keep_checkbox{
     border: solid rgb(0,98,65) 0.1rem;
     width: 1.7rem;
     height: 1.7rem;
@@ -118,23 +114,23 @@ a:hover{
     transition: 150ms ease-in;
 }
 
-.keep-checkbox-toggled{
+.keep_checkbox_toggled{
     background-color: rgb(0,98,65) ;
 }
 
-.forgot-link{
+.forgot_link{
     width: 30rem;
-    font-size: large;
+    font-size: medium;
     margin-bottom: 1rem;
 }
 
-.sign-button-frame{
+.sign_button_frame{
     display: flex;
     width: 30rem;
     justify-content: right;
 }
 
-.sign-button{
+.sign_button{
     background-color: rgb(0,98,65);
     color: white;
     font-size: large;
@@ -143,7 +139,7 @@ a:hover{
     padding: 1rem;
 }
 
-.input-instructions{
+.input_instructions{
     display: flex;
     width: 28rem;
     margin-top: -1rem;
@@ -152,11 +148,11 @@ a:hover{
 
 
 @media(min-width:768px){
-    .form-bubble{
+    .form_bubble{
         box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.105);
     }
 
-    .create-title{
+    .create_title{
         margin-bottom: 4rem;
         margin-top: 2rem;
     }

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { PostModel } from "@/models/PostModel";
 import Post from "@/components/Post";
+import styles from '../styles/post.module.scss';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default function Home() {
 }, []);
 
   return (
-    <div className="content-view">
+    <div className={styles.page}>
       {
         posts.map((post, index) => <Post key={post.title} alternate={index % 2 !== 0} post={post}></Post>)
       }

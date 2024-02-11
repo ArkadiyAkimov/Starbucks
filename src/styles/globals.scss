@@ -1,7 +1,3 @@
-@import '../styles/signin.scss';
-@import '../styles/slide-menu.scss';
- 
-
 body{
     margin: 0px;
     font-family: sans-serif;
@@ -10,6 +6,21 @@ body{
 button{
     background-color: #0000;
     border: none;
+}
+
+a{
+    color:rgb(0,98,65) ; 
+    font-weight: bold;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.overflow-y-hidden{
+    overflow-y: hidden;
 }
 
 @media(min-width:768px){

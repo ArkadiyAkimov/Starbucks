@@ -1,8 +1,7 @@
 import { useContext, useState } from "react"
 import { AppStateContext } from "../_app"
-import { User } from "@/models/User"
 import { useRouter } from "next/router"
-import { AppState } from "@/models/AppState"
+import styles from '../../styles/signin.module.scss'
 
 export default function Signin(){
     const {appState,setAppState} = useContext(AppStateContext)
@@ -30,23 +29,23 @@ export default function Signin(){
     }
 
     return(
-        <div className="form-frame">
-            <div className="signin-title">Sign in or create an account</div>
+        <div className={styles.form_frame}>
+            <div className={styles.signin_title}>Sign in or create an account</div>
             
-            <div className="form-bubble">
-            <div className="little-disclaimer">*indicates required field</div>
-            <input className="username-input" onChange={e=>setUsername(e.target.value)} value={username} type="text" placeholder="*Username or email address"/>
-            <input className="password-input" onChange={e=>setPassword(e.target.value)} value={password} type="text" placeholder="*Password"/>
-            <div className="keep-signed-in">
-                <button onClick={()=>{setKeepSigned(!keepSigned)}} className={`keep-checkbox ${keepSigned && `keep-checkbox-toggled`}`}>
+            <div className={styles.form_bubble}>
+            <div className={styles.little_disclaimer}>*indicates required field</div>
+            <input className={styles.username_input} onChange={e=>setUsername(e.target.value)} value={username} type="text" placeholder="*Username or email address"/>
+            <input className={styles.password_input} onChange={e=>setPassword(e.target.value)} value={password} type="text" placeholder="*Password"/>
+            <div className={styles.keep_signed_in}>
+                <button onClick={()=>{setKeepSigned(!keepSigned)}} className={`${styles.keep_checkbox} ${keepSigned && `${styles.keep_checkbox_toggled}`}`}>
                 ✔</button>
                 Keep me signed in.
                 <a href="">Details</a>
             </div>
-            <a className="forgot-link" href="">Forgot your username?</a>
-            <a className="forgot-link" href="">Forgot your password?</a>
-            <div className="sign-button-frame">
-                <button onClick={()=>{login()}} className="sign-button">Sign in</button>
+            <a className={styles.forgot_link} href="">Forgot your username?</a>
+            <a className={styles.forgot_link} href="">Forgot your password?</a>
+            <div className={styles.sign_button_frame}>
+                <button onClick={()=>{login()}} className={styles.sign_button}>Sign in</button>
             </div>
         </div>
         </div>
