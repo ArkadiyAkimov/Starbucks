@@ -42,6 +42,8 @@ export default function Navbar(){
             <SiStarbucks className={styles.logo} color="rgb(0,98,65)"/>
             </Link>
 
+            { showFull && 
+            <>
             <div className={styles2.navbar_slide_menu_button} onClick={()=>setSlideIn(!slideIn)}>
                 <div className={styles2.circle}></div>
                     <div className={styles2.lines_container}>
@@ -51,7 +53,7 @@ export default function Navbar(){
                     </div>
             </div>
 
-            { showFull &&  
+            
             <div className={styles.items}>
             <div>
                 <button className={styles.menu_button}>MENU</button>
@@ -79,6 +81,7 @@ export default function Navbar(){
                      }
                 </div>
                 </div>
+                </>
                  }
         </nav>
             <div className={styles2.slide_bg + ' ' + `${slideIn && styles2.slide_bg_in}`} onClick={()=>setSlideIn(!slideIn)}>
