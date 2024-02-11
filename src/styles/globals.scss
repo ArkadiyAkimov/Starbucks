@@ -1,11 +1,13 @@
 body{
     margin: 0px;
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 
 button{
     background-color: #0000;
     border: none;
+    cursor: pointer;
 }
 
 a{
@@ -13,6 +15,8 @@ a{
     font-weight: bold;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
+    
+    cursor: pointer;
 }
 
 a:hover{

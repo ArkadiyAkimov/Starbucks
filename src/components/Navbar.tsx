@@ -71,7 +71,7 @@ export default function Navbar(){
                         <button className={styles.signin_button}>Sign in</button>
                      </Link>
                      <Link href={`/account/create`}>
-                        <button className={styles.create_button}>Join us</button>
+                        <button className={styles.create_button}>Join now</button>
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
@@ -101,7 +101,7 @@ export default function Navbar(){
                         <button className={styles.signin_button}>Sign in</button>
                      </Link>
                      <Link href={`/account/create`}>
-                        <button className={styles.create_button}>Join us</button>
+                        <button className={styles.create_button}>Join now</button>
                      </Link>
                      </React.Fragment> 
                     :<React.Fragment>
